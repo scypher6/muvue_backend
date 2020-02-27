@@ -1,0 +1,2 @@
+class FetchedsController < ApplicationController
+end
