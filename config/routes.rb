@@ -6,7 +6,7 @@ Rails.application.routes.draw do
   resources :likes
   resources :reviews
   resources :movies
-  resources :users
+  resources :users, only: [:show, :create]
 
 
   get '/genres/action', to: 'genres#action'
