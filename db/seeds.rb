@@ -87,7 +87,7 @@ movie_data.each do |movie|
 
 
 g1 = Genre.create(name: action)
-u1 = User.create(name: 'Jon', username: 'jonny5')
+u1 = User.create(name: 'Jon', username: 'jonny5', password: 'abc')
 m1 = Movie.create(title: 'MI3', description: '5th Installment of Mission Impossible')
 
 l1 = Like.create(user_id: u1.id, movie_id: m1.id)
