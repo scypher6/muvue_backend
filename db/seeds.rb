@@ -6,17 +6,18 @@
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
 require 'rest-client';
+require '.env'
 # require "net/http"
 # require 'uri'
 
-KEY = 'AIzaSyClQEe2YFSdU3uUvnsQqmoUpkDAkohrRiI'
+
 
 
 
 #FETCH FOR ACTION
 genre = 'action'
 action = Genre.create(name: genre)          #CREATE GENRE
-youtube_data = RestClient.get("https://www.googleapis.com/youtube/v3/search?part=snippet&maxResults=50&key=AIzaSyClQEe2YFSdU3uUvnsQqmoUpkDAkohrRiI&type=video&q=youtube+movies+free+with+ads+#{genre}")
+youtube_data = RestClient.get("https://www.googleapis.com/youtube/v3/search?part=snippet&maxResults=50&key=#{GOOGLE_API_KEY = ENV['google_api_key']}&type=video&q=youtube+movies+free+with+ads+#{genre}")
 movie_data = JSON.parse(youtube_data)['items']
 
 movie_data.each do |movie|
@@ -40,7 +41,7 @@ movie_data.each do |movie|
 #FETCH FOR ANIMATION
 genre = 'animation'
 action = Genre.create(name: genre)          #CREATE GENRE
-youtube_data = RestClient.get("https://www.googleapis.com/youtube/v3/search?part=snippet&maxResults=50&key=AIzaSyClQEe2YFSdU3uUvnsQqmoUpkDAkohrRiI&type=video&q=youtube+movies+free+with+ads+#{genre}")
+youtube_data = RestClient.get("https://www.googleapis.com/youtube/v3/search?part=snippet&maxResults=50&key=#{GOOGLE_API_KEY = ENV['google_api_key']}&type=video&q=youtube+movies+free+with+ads+#{genre}")
 movie_data = JSON.parse(youtube_data)['items']
 
 movie_data.each do |movie|
@@ -64,7 +65,7 @@ movie_data.each do |movie|
 #FETCH FOR COMEDY
 genre = 'comedy'
 action = Genre.create(name: genre)          #CREATE GENRE
-youtube_data = RestClient.get("https://www.googleapis.com/youtube/v3/search?part=snippet&maxResults=50&key=AIzaSyClQEe2YFSdU3uUvnsQqmoUpkDAkohrRiI&type=video&q=youtube+movies+free+with+ads+#{genre}")
+youtube_data = RestClient.get("https://www.googleapis.com/youtube/v3/search?part=snippet&maxResults=50&key=#{GOOGLE_API_KEY = ENV['google_api_key']}&type=video&q=youtube+movies+free+with+ads+#{genre}")
 movie_data = JSON.parse(youtube_data)['items']
 
 movie_data.each do |movie|
