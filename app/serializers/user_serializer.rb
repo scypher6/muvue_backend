@@ -1,5 +1,5 @@
 class UserSerializer < ActiveModel::Serializer
-  attributes :id, :name, :likedMovies, :username
+  attributes :id, :name, :username, :likedMovies, :reviewedMovies
   
   has_many :reviews
   has_many :movies
@@ -9,4 +9,12 @@ class UserSerializer < ActiveModel::Serializer
           like.movie
       end
   end
+
+
+  def reviewedMovies
+      self.object.reviews.map do |review|
+          review.movie
+      end
+  end
+
 end

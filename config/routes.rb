@@ -8,9 +8,17 @@ Rails.application.routes.draw do
   resources :movies
   resources :users, only: [:index, :show, :create, :destroy, :update]
 
+  # resources :users do
+  #     resources :likes
+  # end
 
-  get '/genres/action', to: 'genres#action'
+  post '/users/:id/likes', to: 'likes#create'
+  get '/genres/action', to: 'genres#genre'
+  get '/genres/comedy', to: 'genres#genre'
+  get '/genres/horror', to: 'genres#genre'
   post '/login', to: 'users#login'
   get '/persist', to: 'users#persist'
+
+  
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
 end

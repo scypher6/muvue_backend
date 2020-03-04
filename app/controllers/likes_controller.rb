@@ -1,36 +1,38 @@
 class LikesController < ApplicationController
-    before_action :authorized, :find_post
-    
+    before_action :authorized
+
     # def create
     #     @like = Like.create(user_id: params[:user][:user.id], movie_id: params[:user][:movie_id])
     #     render json: { user: UserSerializer.new(@user), token: @token }, status: :created
     # end
 
     def create
+        # byebug
         if already_liked?
             flash[:notice] = "Sorry, can't like more than once!"
           else
-            @movie.likes.create(user_id: params[:user][:user.id])
+            @movie = Movie.find_by(videoId: params[:videoId])
+            # @movie.likes.create(user_id: params[:id])
+            Like.create(movie_id: @movie.id, user_id: params[:id])
             render json: {movie: MovieSerializer.new(@movie), token: @token}, status: :created
         end
     end
 
     def destroy
 
-        @like = Like.find_by(user_id: current_user.id)
+        @like = Like.find_by(user_id: params[:id])
         @like.destroy
 
-        render json: {pic: params[:pic_id]}
+        render json: @like.id
     end
 
     private
 
-    def find_post
-        @pic = Pic.find(params[:pic_id])
-    end
+    # def find_like
+    #     @like = Like.find(params[:like][:id])
+    # end
 
     def already_liked?
-        Like.where(user_id: @user.id, pic_id:
-        params[:pic_id]).exists?
+        Like.where(user_id: params[:id], movie_id: params[:videoId]).exists?
     end
 end

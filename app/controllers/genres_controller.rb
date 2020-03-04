@@ -6,17 +6,17 @@ class GenresController < ApplicationController
     end
 
     def show
-        genre = params[:id]
-        moviesByGenre = ""
+        selectedGenre = params[:id]
+        renderedGenre = ""
 
-        case genre
+        case selectedGenre
              when 'action'
-                 moviesByGenre = Genre.first.movies
-             when 'animation'
-                 moviesByGenre = Genre.second.movies
+                 renderedGenre = Genre.first.movies
+             when 'horror'
+                 renderedGenre = Genre.second.movies
              when 'comedy'
-                 moviesByGenre = Genre.third.movies
+                 renderedGenre = Genre.third.movies
         end
-        render json: moviesByGenre   
+        render json: renderedGenre   
     end
 end

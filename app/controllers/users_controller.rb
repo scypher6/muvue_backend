@@ -48,8 +48,8 @@ class UsersController < ApplicationController
     
     def destroy
         @user = User.find(params[:id])
-        # byebug
         @user.destroy
+        byebug
 
         render json: {message: 'Successfully deleted!'}
     end
