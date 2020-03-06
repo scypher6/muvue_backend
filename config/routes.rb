@@ -13,6 +13,7 @@ Rails.application.routes.draw do
   # end
 
   post '/users/:id/likes', to: 'likes#create'
+  get '/topmovies', to: 'movies#topmovies'
   get '/genres/action', to: 'genres#genre'
   get '/genres/comedy', to: 'genres#genre'
   get '/genres/horror', to: 'genres#genre'
