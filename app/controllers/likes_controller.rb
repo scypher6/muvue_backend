@@ -9,12 +9,13 @@ class LikesController < ApplicationController
     def create
         # byebug
         if already_liked?
-            flash[:notice] = "Sorry, can't like more than once!"
+            # flash[:notice] = "Sorry, can't like more than once!"
+            render json: {liked: true}
           else
             @movie = Movie.find_by(videoId: params[:videoId])
             # @movie.likes.create(user_id: params[:id])
             Like.create(movie_id: @movie.id, user_id: params[:id])
-            render json: {movie: MovieSerializer.new(@movie), token: @token}, status: :created
+            render json: {movie: MovieSerializer.new(@movie), token: @token, liked: true}, status: :created
         end
     end
 

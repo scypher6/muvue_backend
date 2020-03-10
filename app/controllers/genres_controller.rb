@@ -12,10 +12,10 @@ class GenresController < ApplicationController
         case selectedGenre
              when 'action'
                  renderedGenre = Genre.first.movies
-             when 'horror'
-                 renderedGenre = Genre.second.movies
-             when 'comedy'
-                 renderedGenre = Genre.third.movies
+            #  when 'horror'
+            #      renderedGenre = Genre.second.movies
+            #  when 'comedy'
+            #      renderedGenre = Genre.third.movies
         end
         render json: renderedGenre   
     end

@@ -12,6 +12,7 @@ Rails.application.routes.draw do
   #     resources :likes
   # end
 
+  post '/users/:id/favorites', to: 'favorites#create'
   post '/users/:id/likes', to: 'likes#create'
   get '/topmovies', to: 'movies#topmovies'
   get '/genres/action', to: 'genres#genre'
