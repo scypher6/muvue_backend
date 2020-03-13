@@ -10,7 +10,4 @@ class Movie < ApplicationRecord
 
     has_many :fetched
     has_many :genres, through: :fetched
-
-    has_many :ratings
-    has_many :users, through: :ratings
 end

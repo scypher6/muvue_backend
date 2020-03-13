@@ -17,4 +17,11 @@ class UserSerializer < ActiveModel::Serializer
       end
   end
 
+  
+  def favedMovies
+    self.object.favorites.map do |favorite|
+        favorite.movie
+    end
+  end
+
 end
