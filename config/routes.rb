@@ -14,6 +14,7 @@ Rails.application.routes.draw do
 
   post '/users/:id/favorites', to: 'favorites#create'
   post '/users/:id/likes', to: 'likes#create'
+  delete '/users/likes/:id', to: 'likes#destroy'
   get '/topmovies', to: 'movies#topmovies'
   get '/genres/action', to: 'genres#genre'
   get '/genres/comedy', to: 'genres#genre'
