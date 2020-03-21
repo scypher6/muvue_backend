@@ -2,7 +2,7 @@ class UserSerializer < ActiveModel::Serializer
   attributes :id, :name, :username, :likedMovies, :reviewedMovies
   
   has_many :reviews
-  has_many :movies
+  has_many :likes, through: :movies
   
   def likedMovies
       self.object.likes.map do |like|

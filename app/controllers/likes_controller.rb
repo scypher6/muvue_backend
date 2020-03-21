@@ -7,6 +7,7 @@ class LikesController < ApplicationController
     # end
 
     def create
+        # byebug
         @movie = Movie.find_by(videoId: params[:videoId])
         if already_liked?
             # byebug
