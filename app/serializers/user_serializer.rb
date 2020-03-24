@@ -7,20 +7,20 @@ class UserSerializer < ActiveModel::Serializer
   def likedMovies
       self.object.likes.map do |like|
           like.movie
-      end
+      end.uniq
   end
 
 
   def reviewedMovies
       self.object.reviews.map do |review|
           review.movie
-      end
+      end.uniq
   end
 
   
   def favedMovies
     self.object.favorites.map do |favorite|
-        favorite.movie
+        favorite.movie.uniq
     end
   end
 
