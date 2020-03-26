@@ -5,7 +5,8 @@ class FavoritesController < ApplicationController
         @movie = Movie.find_by(videoId: params[:videoId])
         # byebug
         if already_faved?
-            render json: {movie: MovieSerializer.new(@movie), token: @token, faved: true}
+            @fav = Favorite.find_by(user_id: params[:id], movie_id: @movie.id)
+            render json: {movie: MovieSerializer.new(@movie), favID: @fav.id, token: @token, faved: true}
         else
             # @movie.likes.create(user_id: params[:id])
             Favorite.create(movie_id: @movie.id, user_id: params[:id])
