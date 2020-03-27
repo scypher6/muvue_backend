@@ -2121,9 +2121,14 @@ movie_data.each do |movie|
 
     # mv.genres.push(type)
 
-    random = rand(20...40)
+    random = rand(21...41)
     random.times do
         Like.create(movie_id: mv.id, user_id: u1.id)
+    end
+
+    random = rand(11...31)
+    random.times do
+        Favorite.create(movie_id: mv.id, user_id: u1.id)
     end
 # byebug
  end
