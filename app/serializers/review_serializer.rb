@@ -5,4 +5,8 @@ class ReviewSerializer < ActiveModel::Serializer
       self.object.user
   end
 
+  def created_at
+      self.object.created_at.strftime("%m-%d-%YT%I:%M %P").upcase
+  end
+
 end
