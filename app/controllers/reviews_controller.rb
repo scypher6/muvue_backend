@@ -13,6 +13,10 @@ class ReviewsController < ApplicationController
     end
 
     def destroy
-        
+        # byebug
+        @review = Review.find(params[:id])
+        @review.destroy
+
+        render json: @review
     end
 end
