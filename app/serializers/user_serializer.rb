@@ -1,5 +1,5 @@
 class UserSerializer < ActiveModel::Serializer
-  attributes :id, :name, :username, :likedMovies, :reviewedMovies
+  attributes :id, :name, :username, :email, :pictures, :likedMovies, :reviewedMovies
   
   has_many :reviews
   has_many :favorites
