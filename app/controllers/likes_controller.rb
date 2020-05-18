@@ -12,11 +12,11 @@ class LikesController < ApplicationController
         if already_liked?
             # byebug
             like = Like.find_by(user_id: params[:id], movie_id: @movie.id)
-            render json: {movie: MovieSerializer.new(@movie), likeID: like.id, liked: true}
+            render json: {movie: MovieSerializer.new(@movie), videoId: @movie.videoId, likeID: like.id, liked: true}
           else
             # @movie.likes.create(user_id: params[:id])
             Like.create(movie_id: @movie.id, user_id: params[:id])
-            render json: {movie: MovieSerializer.new(@movie), token: @token, liked: false}, status: :created
+            render json: {movie: MovieSerializer.new(@movie), videoId: @movie.videoId, token: @token, liked: false}, status: :created
         end
     end
 
