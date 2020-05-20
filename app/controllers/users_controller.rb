@@ -13,7 +13,7 @@ class UsersController < ApplicationController
 
     def create
         # byebug
-        @user = User.create(username: params[:user][:username], password: params[:user][:password])
+        @user = User.create(name: params[:user][:name], username: params[:user][:username], email: params[:user][:email], password: params[:user][:password])
         if @user.valid?
             @token = encode_token(user_id: @user.id)
             UserMailer.sample_email(@user).deliver        #action mailer
@@ -49,7 +49,6 @@ class UsersController < ApplicationController
     def destroy
         @user = User.find(params[:id])
         @user.destroy
-        byebug
 
         render json: {message: 'Successfully deleted!'}
     end
