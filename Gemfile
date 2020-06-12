@@ -25,7 +25,7 @@ gem 'active_model_serializers', '~> 0.10.0'
 # gem 'image_processing', '~> 1.2'
 
 gem 'rest-client'
-
+gem 'faker', '~> 1.6', '>= 1.6.3'
 # Reduces boot times through caching; required in config/boot.rb
 gem 'bootsnap', '>= 1.4.2', require: false
 

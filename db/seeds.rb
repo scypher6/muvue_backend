@@ -6,6 +6,7 @@
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
 require 'rest-client';
+require 'faker';
 # require "net/http"
 # require 'uri'
 # Fetched.destroy_all
@@ -20,6 +21,7 @@ GOOGLE_API_KEY = ENV['google_api_key']
 genre = 'action'
 type = Genre.create(name: genre)          #CREATE GENRE
 # youtube_data = RestClient.get("https://www.googleapis.com/youtube/v3/search?part=snippet&maxResults=50&key=#{GOOGLE_API_KEY}&type=video&q=youtube+movies+free+with+ads+#{genre}")
+
 youtube_data = {
     "kind": "youtube#playlistItemListResponse",
     "etag": "\"SJZWTG6xR0eGuCOh2bX6w3s4F94/EmQ9XlhKi11QWWf1SL9B80IllmY\"",
@@ -2104,7 +2106,8 @@ youtube_data = {
 
 
 
-# RestClient.get("https://www.googleapis.com/youtube/v3/playlistItems?part=snippet&playlistId=PLHPTxTxtC0ibVZrT2_WKWUl2SAxsKuKwx&key=#{GOOGLE_API_KEY}&maxResults=50&q=#{genre}")
+
+ # RestClient.get("https://www.googleapis.com/youtube/v3/playlistItems?part=snippet&playlistId=PLHPTxTxtC0ibVZrT2_WKWUl2SAxsKuKwx&key=#{GOOGLE_API_KEY}&maxResults=50&q=#{genre}")
 movie_data = youtube_data[:items]
 u1 = User.create(name: 'Jon', username: 'jonny5', password: 'abc')
 
@@ -2112,6 +2115,19 @@ movie_data.each do |movie|
     # byebug
     vidID = movie[:snippet][:resourceId][:videoId]
    
+    # created_at.strftime("%m-%d-%YT%I:%M %P").upcase
+    month = sprintf('%02d', rand(12))
+    date = sprintf('%02d', rand(28))
+    year = 2020
+    hr = sprintf('%02d',rand(24)).to_i
+    min = sprintf('%02d',rand(60))
+    sec = sprintf('%02d',rand(60))
+    now = Time.now
+    a_day_ago = now - 60 * 60 * 24
+    random_time = rand(a_day_ago..now).to_s[11, 8]
+    
+    this_time = "#{month}-#{date}-#{year} #{random_time}"
+
     mv = Genre.first.movies.create(
         videoId: vidID,
         title: movie[:snippet][:title],
@@ -2121,15 +2137,23 @@ movie_data.each do |movie|
 
     # mv.genres.push(type)
 
-    random = rand(21...41)
+    random = rand(31...141)
     random.times do
-        Like.create(movie_id: mv.id, user_id: u1.id)
+        Like.create(movie_id: mv.id, user_id: u1.id, created_at: this_time)
     end
 
-    random = rand(11...31)
+    random = rand(11...131)
     random.times do
-        Favorite.create(movie_id: mv.id, user_id: u1.id)
+        Favorite.create(movie_id: mv.id, user_id: u1.id, created_at: this_time)
     end
+
+    random = rand(1...19)
+    random.times do
+        randQuote = Faker::Movie.quote
+        Review.create(movie_id: mv.id, user_id: u1.id, content: randQuote, created_at: this_time)
+    end
+
+
 # byebug
  end
 
