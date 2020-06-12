@@ -2137,17 +2137,17 @@ movie_data.each do |movie|
 
     # mv.genres.push(type)
 
-    random = rand(31...141)
+    random = rand(31...41)
     random.times do
         Like.create(movie_id: mv.id, user_id: u1.id, created_at: this_time)
     end
 
-    random = rand(11...131)
+    random = rand(11...31)
     random.times do
         Favorite.create(movie_id: mv.id, user_id: u1.id, created_at: this_time)
     end
 
-    random = rand(1...19)
+    random = rand(1...15)
     random.times do
         randQuote = Faker::Movie.quote
         Review.create(movie_id: mv.id, user_id: u1.id, content: randQuote, created_at: this_time)
