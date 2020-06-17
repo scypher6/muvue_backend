@@ -2198,6 +2198,7 @@ movie_data.each do |movie|
         Favorite.create(movie_id: mv.id, user_id: u1.id, created_at: this_time)
     end
 
+
     # random = rand(1...9)
     # random.times do
     #     randQuote = Faker::Movie.quote
