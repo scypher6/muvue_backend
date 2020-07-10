@@ -6,7 +6,8 @@ class ReviewSerializer < ActiveModel::Serializer
   end
 
   def created_at
-      self.object.created_at.strftime("%m-%d-%YT%I:%M %P").upcase
+      # self.object.created_at.strftime("%m-%d-%YT%I:%M %P").upcase
+      Time.now.strftime("%m-%d-%YT%I:%M %P").upcase
   end
 
 end
