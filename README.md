@@ -21,3 +21,10 @@ The backend is running a rails server that saves the YouTube API data to a Postg
 - Run rails server: 
   rails s
 
+### Tech Stack
+- Rails server
+- PostgreSQL db
+- Actionmailer 
+- YouTube API
+- RestClient
+- Figaro
