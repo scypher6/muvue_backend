@@ -1,24 +1,8 @@
-# README
+# Muvue
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+Muvue is an app that uses YouTube API to allow you to stream free full-length movies online, directly from your browser.
 
-Things you may want to cover:
-
-* Ruby version
-
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+### Getting Started
+- Git clone the repository
+- Install PostgreSQL: brew install postgres.
+- Run rails server: rails s
