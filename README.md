@@ -2,6 +2,9 @@
 
 Muvue is an app that uses YouTube API to allow you to stream free full-length movies online, directly from your browser.
 
+### Features
+The backend is running a rails server that saves the YouTube API data to a PostgreSQL database.
+
 ### Getting Started
 - Git clone the repository
 - Install Homebrew package manager:
