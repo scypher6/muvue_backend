@@ -9,17 +9,18 @@ The backend is running a rails server that saves the YouTube API data to a Postg
 ### Getting Started
 - Git clone the repository
 - Install Homebrew package manager:
-  /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install.sh)"
+  */bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install.sh)"*
 - Update Brew
-  brew doctor
-  brew update
+  *brew doctor*
+  *brew update*
 - Install PostgreSQL: 
-  brew install libpq
+  *brew install libpq*
 - Make sure the PostsreSQL server is running
-- Then run the following:
-  rake db:create
+- Then create the db:
+  *rake db:create*
+- Run: *bundle install*
 - Run rails server: 
-  rails s
+  *rails s*
 
 ### Tech Stack
 - Rails server
