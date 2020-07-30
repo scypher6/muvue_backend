@@ -25,9 +25,7 @@ The backend is running a rails server that saves the YouTube API data to a Postg
  ## Frontend: [Here](https://github.com/scypher6/muvue_frontend)
 
 ## Tech Stack
-- Rails server
--- Rails Serializers
--- Active Records
+- Rails server - Rails Serializers - Active Records
 - PostgreSQL db
 - Actionmailer 
 - YouTube API
