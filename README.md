@@ -26,6 +26,8 @@ The backend is running a rails server that saves the YouTube API data to a Postg
 
 ## Tech Stack
 - Rails server
+-- Rails Serializers
+-- Active Records
 - PostgreSQL db
 - Actionmailer 
 - YouTube API
